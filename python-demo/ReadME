@@ -1,0 +1,56 @@
+# Python AWS Static Website Deployment
+
+## 📌 Project Overview
+
+This project demonstrates how to deploy a static website on **Amazon S3 using Python and Boto3**.
+
+The Python script automates the process of creating an S3 bucket, enabling static website hosting, configuring public read access, and uploading website files.
+
+## 🎯 Objectives
+
+- Learn Python functions and libraries.
+- Understand AWS automation using Boto3.
+- Create and configure an Amazon S3 bucket.
+- Upload static website files to AWS.
+- Access the deployed website using an S3 website endpoint.
+- Practise Git and GitHub for version control.
+
+## 🏗️ Architecture
+
+```text
+Developer
+    |
+    v
+Python Script (deploy.py)
+    |
+    v
+Boto3 AWS SDK
+    |
+    v
+Amazon S3 Bucket
+    |
+    v
+Static Website
+(HTML, CSS, JavaScript)
+    |
+    v
+Web Browser
+```
+
+## 🛠️ Technologies Used
+
+- **Python** – Automation scripting
+- **Boto3** – AWS SDK for Python
+- **Amazon S3** – Static website hosting and file storage
+- **AWS CLI** – AWS credential configuration
+- **Git** – Version control
+- **GitHub** – Source code repository
+
+## 📁 Project Structure
+
+```text
+python-demo-/
+├── deploy.py
+├── website/
+│   └── index.html
+├── .git
