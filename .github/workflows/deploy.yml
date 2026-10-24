@@ -43,4 +43,4 @@ jobs:
 
       - name: Upload website to S3
         run: |
-          aws s3 sync website/ s3://${{ vars.S3_BUCKET_NAME }}/
+          aws s3 sync python-demo/ s3://python-static-site-5b675732a4/
