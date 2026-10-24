@@ -5,8 +5,10 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:
+    
     paths:
-      - "deploy.py"
+      - "python-demo/deploy.py"
       - "website/**"
       - ".github/workflows/deploy.yml"
 
