@@ -1,0 +1,226 @@
+# Python AWS Static Website Deployment
+
+## 📌 Project Overview
+
+This project demonstrates how to deploy a static website on **Amazon S3 using Python and Boto3**.
+
+The Python script automates the process of creating an S3 bucket, enabling static website hosting, configuring public read access, and uploading website files.
+
+## 🎯 Objectives
+
+- Learn Python functions and libraries.
+- Understand AWS automation using Boto3.
+- Create and configure an Amazon S3 bucket.
+- Upload static website files to AWS.
+- Access the deployed website using an S3 website endpoint.
+- Practise Git and GitHub for version control.
+
+## 🏗️ Architecture
+
+```text
+Developer
+    |
+    v
+Python Script (deploy.py)
+    |
+    v
+Boto3 AWS SDK
+    |
+    v
+Amazon S3 Bucket
+    |
+    v
+Static Website
+(HTML, CSS, JavaScript)
+    |
+    v
+Web Browser
+```
+
+## 🛠️ Technologies Used
+
+- **Python** – Automation scripting
+- **Boto3** – AWS SDK for Python
+- **Amazon S3** – Static website hosting and file storage
+- **AWS CLI** – AWS credential configuration
+- **Git** – Version control
+- **GitHub** – Source code repository
+
+## 📁 Project Structure
+
+```text
+python-demo-/
+├── deploy.py
+├── website/
+│   └── index.html
+├── .gitignore
+└── README.md
+```
+
+## ✅ Prerequisites
+
+Before starting, ensure you have:
+
+1. Python 3 installed.
+2. AWS CLI installed.
+3. An AWS account.
+4. Git installed.
+5. An AWS IAM identity with the required S3 permissions.
+6. VS Code or another code editor.
+
+## ⚙️ Setup Instructions
+
+### Step 1: Clone the Repository
+
+```bash
+git clone https://github.com/poojasdg05-prog/python-demo-.git
+cd python-demo-
+```
+
+### Step 2: Install Boto3
+
+```bash
+python -m pip install boto3
+```
+
+Boto3 allows Python applications to interact with AWS services.
+
+### Step 3: Configure AWS Credentials
+
+```bash
+aws configure
+```
+
+Provide your AWS access key, secret access key, preferred region, and output format when prompted.
+
+**Security:** Never hardcode AWS credentials in Python files or commit them to GitHub. Prefer an IAM role when running the script on EC2.
+
+### Step 4: Create the Website
+
+Create a directory named `website` and add an `index.html` file.
+
+Example:
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My AWS Website</title>
+</head>
+<body>
+    <h1>Hello from AWS!</h1>
+    <p>This website was deployed using Python and Amazon S3.</p>
+</body>
+</html>
+```
+
+### Step 5: Run the Deployment Script
+
+```bash
+python deploy.py
+```
+
+The script performs the following operations:
+
+1. Creates an S3 bucket with a unique name.
+2. Enables static website hosting.
+3. Configures public read access to website objects.
+4. Uploads the website files.
+5. Prints the website URL.
+
+### Step 6: Access the Website
+
+After successful execution, copy the website URL printed in the terminal and open it in your browser.
+
+The URL follows this format:
+
+```text
+http://<bucket-name>.s3-website-<region>.amazonaws.com
+```
+
+Replace the placeholders with the actual bucket name and AWS region.
+
+## 🧠 Python Concepts Covered
+
+| Concept | Purpose |
+|---|---|
+| `import` | Imports Python modules and libraries |
+| `def` | Defines reusable functions |
+| Parameters | Pass inputs into functions |
+| `boto3.client()` | Creates an AWS service client |
+| `for` loop | Iterates over website files |
+| `if` condition | Checks whether an item is a file |
+| `pathlib` | Works with filesystem paths |
+| `json.dumps()` | Converts a Python dictionary into JSON text |
+| `mimetypes` | Determines file content types |
+| `main()` | Coordinates the deployment steps |
+
+## ☁️ AWS Services and Operations
+
+### Amazon S3
+
+Amazon S3 stores the static website files and provides website hosting functionality.
+
+### Boto3
+
+Boto3 is the Python library used to automate AWS operations.
+
+The script uses operations such as:
+
+- `create_bucket()` – Creates an S3 bucket.
+- `put_bucket_website()` – Enables website hosting.
+- `put_bucket_policy()` – Configures bucket permissions.
+- `upload_file()` – Uploads local files to S3.
+
+## 🔐 Security Considerations
+
+- The demo configures public read access to website objects.
+- Do not upload passwords, access keys, private documents, or sensitive data.
+- Account-level or organization-level public-access restrictions may prevent the deployment.
+- The S3 website endpoint uses HTTP and does not provide HTTPS.
+- For a production website, consider Amazon CloudFront with a private S3 bucket and Origin Access Control.
+- Use least-privilege IAM permissions.
+
+## 🧹 Cleanup
+
+To avoid unnecessary AWS charges, delete the demo bucket after testing.
+
+Replace `<bucket-name>` with the actual bucket name printed by the script.
+
+```bash
+aws s3 rm s3://<bucket-name> --recursive
+aws s3api delete-bucket --bucket <bucket-name> --region us-east-1
+```
+
+These commands permanently delete the objects in the specified bucket and then delete the bucket. Verify the bucket name before running them.
+
+## 🚀 Future Enhancements
+
+- Integrate the project with Jenkins for CI/CD.
+- Use Terraform to provision AWS infrastructure.
+- Store Terraform state remotely in Amazon S3 with appropriate state locking.
+- Add automated testing and error handling to the Python script.
+- Use Amazon CloudFront to serve the website over HTTPS.
+- Add logging and deployment status reporting.
+- Automate cleanup of temporary resources.
+
+## 📚 Learning Outcomes
+
+By completing this project, I learned how to:
+
+- Write Python functions for automation.
+- Use third-party libraries such as Boto3.
+- Interact with AWS services programmatically.
+- Deploy static website files to Amazon S3.
+- Use Git and GitHub to manage source code.
+- Understand basic cloud deployment workflows.
+
+## 👩‍💻 Author
+
+**Pooja**
+
+GitHub: https://github.com/poojasdg05-prog
+
+## ⚠️ Disclaimer
+
+This is a beginner-friendly educational project intended for learning Python and AWS automation. Review IAM permissions, public-access settings, and potential AWS charges before using similar scripts in a production environment.
