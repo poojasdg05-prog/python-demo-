@@ -39,7 +39,13 @@ jobs:
       - name: Verify AWS identity
         run: aws sts get-caller-identity
 
+     - name: Check website files
+       run: |
+        pwd
+        ls -la
+        find . -maxdepth 3 -type f | sort
+
       - name: Upload website to S3
         run: |
-          aws s3 sync website/ s3://${{ vars.S3_BUCKET_NAME }}/
+          aws s3 sync website/ s3://python-static-site-5b675732a4/
 
